@@ -118,7 +118,7 @@ def env_info() -> dict:
         "lm_eval_port_tag": LMEVAL_TAG,
         "data_sha256": SHA256,
         "repo_commit": _cmd(["git", "-C", str(ROOT), "rev-parse", "HEAD"]),
-        "repo_dirty": bool(_cmd(["git", "-C", str(ROOT), "status", "--porcelain"])),
+        "repo_dirty": bool(_cmd(["git", "-C", str(ROOT), "status", "--porcelain", "--untracked-files=no"])),
         "nvidia_smi": _cmd(["nvidia-smi", "--query-gpu=name,memory.total,driver_version,compute_cap",
                             "--format=csv,noheader"]),
     }
@@ -160,6 +160,8 @@ def generation_config(cfg: dict, profile: str) -> dict:
     g.update(cfg["hardware_profiles"].get(profile) or {})
     if os.environ.get("GPU_MEM_UTIL"):
         g["gpu_memory_utilization"] = float(os.environ["GPU_MEM_UTIL"])
+    if os.environ.get("MAX_NUM_SEQS"):  # fewer concurrent sequences -> smaller vLLM profiling peak
+        g["max_num_seqs"] = int(os.environ["MAX_NUM_SEQS"])
     return g
 
 

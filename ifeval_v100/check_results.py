@@ -40,7 +40,7 @@ def main():
     print(f"== results dir: {common.RESULTS}   model set: {mset}")
     print(f"{'model':14s} {'cond':22s} {'n':>4s} {'P-S':>6s} {'I-S':>6s} {'P-L':>6s} {'I-L':>6s} "
           f"{'trunc%':>6s} {'medTok':>6s} {'gpu_h':>6s}  hw/backend")
-    total_h, seen_gpus, revs = 0.0, set(), {}
+    total_h, seen_gpus, revs, dirty = 0.0, set(), {}, 0
     for m in models:
         if m in unavailable:
             warns.append(f"{m}: unavailable (not downloaded / gated) - skipped")
@@ -77,7 +77,7 @@ def main():
             total_h += h
             env = man.get("env", {})
             if env.get("repo_dirty"):
-                warns.append(f"{m}/{c}: repo had uncommitted changes when run")
+                dirty += 1
             gpu = (env.get("nvidia_smi") or "").strip().splitlines()
             if gpu:
                 seen_gpus.add(gpu[0][:60])
@@ -86,6 +86,9 @@ def main():
             print(f"{m:14s} {c:22s} {len(gens):4d} {sc['prompt_strict']:6.2f} {sc['inst_strict']:6.2f} "
                   f"{sc['prompt_loose']:6.2f} {sc['inst_loose']:6.2f} {trunc:6.1f} {med:6d} {h:6.3f}  {hb}")
 
+    if dirty:
+        warns.append(f"{dirty} run(s) flagged repo_dirty (older code counted untracked results/ files; "
+                     "check `git status` - if only results/ is listed, ignore)")
     for m, r in revs.items():
         if len(r) > 1 or cfg["models"][m]["revision"] not in r:
             errors.append(f"{m}: revision mismatch {r}")

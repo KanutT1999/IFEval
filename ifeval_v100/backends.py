@@ -18,11 +18,12 @@ class VLLMBackend:
         from vllm import LLM
         self.gen_cfg, self.stop_ids = gen_cfg, stop_ids
         t = time.time()
+        extra = {"max_num_seqs": int(gen_cfg["max_num_seqs"])} if gen_cfg.get("max_num_seqs") else {}
         self.llm = LLM(model=hf_id, revision=revision, tokenizer_revision=revision,
                        dtype=gen_cfg["dtype"], max_model_len=gen_cfg["max_model_len"],
                        gpu_memory_utilization=gen_cfg["gpu_memory_utilization"],
                        enforce_eager=bool(gen_cfg.get("enforce_eager", False)),
-                       seed=seed, trust_remote_code=False)
+                       seed=seed, trust_remote_code=False, **extra)
         self.load_seconds = time.time() - t
         import vllm
         self.info = {"backend": "vllm", "vllm_version": vllm.__version__}
