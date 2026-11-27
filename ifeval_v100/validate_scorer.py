@@ -92,8 +92,9 @@ def main():
     rep["official_unseeded"] = {m: {"min": min(u[m] for u in unseeded), "max": max(u[m] for u in unseeded),
                                     "mean": statistics.mean(u[m] for u in unseeded)} for m in METRICS}
     rep["official_unseeded_n"] = a.unseeded_repeats
+    # Table 3 is printed to 2 decimals (e.g. 712/834 = 85.3717 -> "85.37"), so compare at that precision.
     rep["paper_within_unseeded_range"] = {
-        m: rep["official_unseeded"][m]["min"] - 1e-9 <= cfg["paper"]["GPT-4"][m] <= rep["official_unseeded"][m]["max"] + 1e-9
+        m: round(rep["official_unseeded"][m]["min"], 2) <= cfg["paper"]["GPT-4"][m] <= round(rep["official_unseeded"][m]["max"], 2)
         for m in METRICS}
 
     lme = score.score_responses(items, resp, "lmeval", langdetect_seed=0)
