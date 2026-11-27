@@ -1,95 +1,103 @@
-# คู่มือรันบน V100 (ภาษาไทย)
+# คู่มือรันบนเครื่องตัวเอง (Windows 11 + WSL2, RTX 3070 Ti 8 GB)
 
-## 1. เช่า GPU บน Vast.ai (ถูกที่สุดสำหรับ V100)
+## 1. ติดตั้ง WSL2 (ครั้งเดียว ~20 นาที, Windows และข้อมูลอยู่ครบ)
 
-1. สมัครที่ <https://vast.ai> แล้วเติมเครดิต ราว $10–15 ก็พอ
-   - V100 บน Vast มักอยู่ที่ราว $0.10–0.70 ต่อชั่วโมง ราคาขึ้นกับเครื่อง
-2. เพิ่ม SSH public key ที่ Account → SSH Keys
-   - ถ้ายังไม่มี key สร้างด้วย `ssh-keygen -t ed25519`
-3. หน้า Search ตั้ง filter ดังนี้
+1. อัปเดต NVIDIA driver **บน Windows** ให้เป็นตัวล่าสุด (GeForce Experience หรือ nvidia.com)
+   - ต้องเป็นเวอร์ชัน ≥ 550
+   - **ห้ามลง NVIDIA driver ใน Ubuntu** เพราะ WSL2 ใช้ driver ของ Windows
+2. เปิด PowerShell แบบ **Run as Administrator** แล้วรัน:
+   ```bash
+   wsl --install -d Ubuntu-22.04
+   ```
+3. รีสตาร์ทเครื่อง แล้วเปิด "Ubuntu 22.04" จาก Start menu และตั้ง username/password
+4. ใน Ubuntu เช็คว่ามองเห็นการ์ดจอ ต้องเห็น "NVIDIA GeForce RTX 3070 Ti":
+   ```bash
+   nvidia-smi
+   ```
+5. ติดตั้งเครื่องมือพื้นฐาน:
+   ```bash
+   sudo apt update && sudo apt install -y git curl tmux build-essential python3-pip
+   ```
 
-   | ตัวกรอง | ค่า |
-   |---|---|
-   | GPU | V100 (เลือก 16GB หรือ 32GB ก็ได้ ถ้าได้ 32GB ราคาใกล้กัน ให้เลือก 32GB แล้วใช้ `MODEL_SET=v100_32gb`) |
-   | จำนวน GPU | 1 |
-   | Max CUDA | ≥ 12.4 (ต้องการ driver ≥ 550) |
-   | Disk | ≥ 80 GB |
-   | Reliability | ≥ 98% |
-   | Internet download | ≥ 200 Mbps |
+> 💡 **ควรทำ:** ให้ WSL ใช้ RAM ได้มากขึ้น โดยสร้างไฟล์ `C:\Users\<ชื่อคุณ>\.wslconfig` ใส่ข้อความด้านล่าง แล้วรัน `wsl --shutdown` ใน PowerShell หนึ่งครั้ง
+> ```
+> [wsl2]
+> memory=24GB
+> ```
 
-4. Template / Image: `pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel` แบบ SSH launch mode
-5. กด Rent แล้วคัดลอกคำสั่ง SSH จากหน้า Instances
+## 2. ดึงโค้ดและติดตั้ง env
 
-ตัวเลือกสำรองที่น่าเชื่อถือแต่แพงกว่า:
-- **Google Cloud** (V100 ราว $2.5/ชม.)
-- **AWS p3.2xlarge** (ราว $3/ชม.)
-
-> ⚠️ **อย่าลืม Destroy instance หลังดาวน์โหลดผลเสร็จ** ถ้าแค่ Stop ระบบยังคิดค่า disk อยู่
-
-## 2. ส่งโค้ดขึ้นเครื่อง
-
-ใช้ได้ 2 วิธี
-
-**วิธี A: rsync** รันบน Mac ของคุณ โดยแก้ PORT และ IP ตามหน้า Instances
+เก็บโค้ดไว้ในบ้านของ Ubuntu (`~`) ไม่ใช่ใน `/mnt/c/...` เพราะไดรฟ์ Windows ช้ากว่ามาก
 
 ```bash
-rsync -avz -e "ssh -p PORT" --exclude .venv-local --exclude results ./ifeval-v100 root@IP:/workspace/
+cd ~ && git clone https://github.com/KanutT1999/IFEval.git && cd IFEval
 ```
 
-**วิธี B: GitHub private repo** โดย push ขึ้น repo ของคุณก่อน แล้ว `git clone` บนเครื่องเช่า
-
-## 3. รัน (ใช้ `tmux` เพื่อไม่ให้งานหลุดตอน SSH ขาด)
+```bash
+export HF_TOKEN=hf_xxx        # สำหรับ Llama: กด accept license บน huggingface.co ก่อน (ถ้าไม่ใช้ Llama ข้ามได้)
+```
 
 ```bash
-ssh -p PORT root@IP
-tmux new -s ifeval
-cd /workspace/ifeval-v100
-export HF_TOKEN=hf_xxx        # ถ้าจะรัน Llama ต้องกด accept license บน huggingface.co ก่อน
 bash setup.sh                 # ~10-15 นาที
-bash smoke.sh                 # ~3 นาที ถ้าผ่านแปลว่า vLLM ใช้ได้บน V100
-bash run_all.sh               # งานจริง
 ```
 
-- ถ้า SSH หลุด ให้ `ssh` เข้าใหม่แล้วพิมพ์ `tmux attach -t ifeval`
-- ถ้ารันพังกลางทาง สั่ง `bash run_all.sh` ซ้ำได้เลย ระบบจะข้าม run ที่เสร็จแล้ว
-
-**ถ้า smoke.sh พังที่ vLLM** (เช่น error เรื่อง compute capability หรือ xformers) ให้ใช้ backend สำรอง:
+## 3. รัน
 
 ```bash
-BACKEND=hf bash smoke.sh
-BACKEND=hf PHASES="1 2" bash run_all.sh
+tmux new -s ifeval            # กันงานหลุดถ้าปิดหน้าต่าง; กลับมาดูด้วย: tmux attach -t ifeval
 ```
 
-backend นี้ช้ากว่า vLLM ราว 3-5 เท่า จึงตัด phase 3 ออก
+```bash
+bash smoke.sh                 # ~3 นาที ถ้าผ่านแปลว่า vLLM ใช้ GPU ได้
+```
 
-## 4. งบเวลา (เป้าหมาย ≤ 10 ชม.)
+```bash
+bash run_all.sh               # งานจริง ระบบเลือก profile rtx_8gb ให้อัตโนมัติ
+```
 
-| ขั้น | เวลาโดยประมาณ (vLLM) |
+**ระหว่างรัน:** ปิด Chrome/เกม/โปรแกรมที่ใช้ GPU เพื่อเหลือ VRAM ให้โมเดลมากที่สุด
+
+**ถ้าไม่มี HF_TOKEN:**
+```bash
+MODEL_SET=rtx_8gb_open bash run_all.sh
+```
+
+### ถ้าเจอปัญหา
+
+| อาการ | แก้ |
+|---|---|
+| `CUDA out of memory` / `No available memory for the cache blocks` | `GPU_MEM_UTIL=0.85 bash run_all.sh` (ถ้ายังไม่ได้ลด 0.80) |
+| เฉพาะโมเดล 3B ไม่พอ | ปกติสำหรับการ์ด 8 GB สคริปต์จะข้ามไปเองและบันทึกใน `results/logs/failures.txt` ให้เขียนลงรายงานว่าเป็นข้อจำกัดของฮาร์ดแวร์ |
+| vLLM พังตั้งแต่เริ่ม | ใช้ backend สำรอง: `BACKEND=hf bash smoke.sh` แล้ว `BACKEND=hf PHASES="1 2" bash run_all.sh` (ช้ากว่า) |
+| ไฟดับหรือปิดเครื่องกลางทาง | สั่ง `bash run_all.sh` ใหม่ ระบบจะข้าม run ที่เสร็จแล้ว |
+
+## 4. เวลาโดยประมาณ (RTX 3070 Ti)
+
+| ขั้น | เวลา |
 |---|---|
 | setup + smoke | ~20 นาที |
-| Phase 1: headline ทุกโมเดล (6 โมเดล × 1 run) | ~30-45 นาที |
-| Phase 2: repeats ×2 + rewordings ×3 (6 × 5 runs) | ~2-3 ชม. |
-| Phase 3: no-template + sampling ×5 (6 × 6 runs) | ~2-3 ชม. |
-| validate + analyze | ~5 นาที |
-| **รวม** | **~5-7 ชม.** (เหลือ buffer ~3 ชม.) |
+| Phase 1: headline ทุกโมเดล | ~1 ชม. |
+| Phase 2: repeats + rewordings | ~3-4 ชม. |
+| Phase 3: no-template + sampling | ~3-4 ชม. |
+| **รวม** | **~8-10 ชม.** ปล่อยรันข้ามคืนได้ ไม่เสียค่าเช่า |
 
-- ทุกครั้งที่จบ run สคริปต์จะพิมพ์ `elapsed` ออกมา ให้ดูประกอบ
-- ถ้าเวลาไม่พอ ให้กด Ctrl-C แล้วสั่ง `python -m ifeval_v100.analyze` ได้เลย เพราะ phase 1 ครบทุกโมเดลตั้งแต่ต้นแล้ว
-
-## 5. ดาวน์โหลดผลกลับ
-
-รันบน Mac:
+ถ้าอยากเร็วขึ้น ให้รันแค่ phase 1 กับ 2 ก่อน:
 
 ```bash
-rsync -avz -e "ssh -p PORT" root@IP:/workspace/ifeval-v100/results ./ifeval-v100/
+PHASES="1 2" bash run_all.sh
 ```
 
-ผลหลักอยู่ที่ `results/report/REPORT.md` และกราฟ `.png` ในโฟลเดอร์เดียวกัน
+## 5. ผลลัพธ์
 
-## 6. สิ่งที่ต้องเขียนเองในรายงาน (40% ส่วน Findings)
+- เปิดดูจาก Windows ได้ที่ `\\wsl$\Ubuntu-22.04\home\<user>\IFEval\results\report\REPORT.md`
+- กราฟ `.png` อยู่ในโฟลเดอร์เดียวกัน
 
-`REPORT.md` สร้างตาราง ช่วงความเชื่อมั่น และประโยค claim ให้อัตโนมัติแล้ว ส่วนที่คุณต้องเขียนเองคือการตีความ:
+## 6. เรื่องที่ต้องเขียนในรายงาน
 
-- คำสั่งประเภทไหนพังเมื่อโมเดลเล็กลง (ดูข้อ 3 และ heatmap)
-- benchmark ยังแยกความเก่งระหว่างโมเดลเล็กได้ไหม (ดูข้อ 7)
-- gap กับเปเปอร์ปนอยู่กับปัจจัยอะไรบ้าง (ข้อ 6) และส่วนที่ยังอธิบายไม่ได้ (residual, ข้อ 8b)
+โจทย์พูดถึง V100 แต่เรารันบน RTX 3070 Ti ข้อนี้**ไม่ผิด** เพราะโจทย์ให้คะแนนจากการสร้าง instrument ที่ทำซ้ำได้ แต่ต้องเขียนให้ชัด:
+
+- **ฮาร์ดแวร์:** RTX 3070 Ti 8 GB, WSL2, fp16 ข้อมูลนี้ถูกบันทึกใน manifest อัตโนมัติ และประโยค claim ใน REPORT.md จะใส่ชื่อ GPU จริงให้
+- **Confound:** ฮาร์ดแวร์เป็นปัจจัยที่ต่างจากเปเปอร์อีกหนึ่งข้อ
+- **ทำไมยังใช้ fp16 ทั้งที่การ์ดรองรับ bf16:** เพื่อให้เทียบกับ V100 และกับคนอื่นที่รันซ้ำได้
+
+**(Optional, ได้คะแนน Harness):** ถ้าภายหลังเช่า V100 ด้วย ให้รัน `IFEVAL_RESULTS=results_v100 PHASES="1" bash run_all.sh` แล้วเทียบผลโมเดลเดียวกันระหว่างสองการ์ด จะได้ finding ว่าฮาร์ดแวร์ทำให้คะแนนแกว่งแค่ไหน

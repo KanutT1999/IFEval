@@ -21,6 +21,7 @@ class VLLMBackend:
         self.llm = LLM(model=hf_id, revision=revision, tokenizer_revision=revision,
                        dtype=gen_cfg["dtype"], max_model_len=gen_cfg["max_model_len"],
                        gpu_memory_utilization=gen_cfg["gpu_memory_utilization"],
+                       enforce_eager=bool(gen_cfg.get("enforce_eager", False)),
                        seed=seed, trust_remote_code=False)
         self.load_seconds = time.time() - t
         import vllm

@@ -133,3 +133,38 @@ def env_info() -> dict:
     except Exception:  # noqa: BLE001
         pass
     return info
+
+
+def gpu_mem_gb() -> float:
+    try:
+        import torch
+        if torch.cuda.is_available():
+            return torch.cuda.get_device_properties(0).total_memory / 2**30
+    except Exception:  # noqa: BLE001
+        pass
+    return 0.0
+
+
+def resolve_hw_profile(cfg: dict, requested: str | None = None) -> str:
+    name = requested or os.environ.get("HW_PROFILE") or "auto"
+    if name == "auto":
+        mem = gpu_mem_gb()
+        name = "rtx_8gb" if 0 < mem < 12 else "v100"
+    if name not in cfg["hardware_profiles"]:
+        raise SystemExit(f"unknown HW_PROFILE {name}; choose from {list(cfg['hardware_profiles'])}")
+    return name
+
+
+def generation_config(cfg: dict, profile: str) -> dict:
+    g = dict(cfg["generation"])
+    g.update(cfg["hardware_profiles"].get(profile) or {})
+    if os.environ.get("GPU_MEM_UTIL"):
+        g["gpu_memory_utilization"] = float(os.environ["GPU_MEM_UTIL"])
+    return g
+
+
+def default_model_set(cfg: dict) -> str:
+    hw = resolve_hw_profile(cfg)
+    if hw == "rtx_8gb":
+        return "rtx_8gb"
+    return "v100_32gb" if gpu_mem_gb() > 24 else "v100_16gb"

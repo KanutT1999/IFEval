@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One-time environment setup on the rented V100 box (Linux x86_64, NVIDIA driver >= 550).
+# One-time environment setup (Linux x86_64 or WSL2 Ubuntu; NVIDIA driver >= 550).
 #   bash setup.sh
 # Creates .venv (Python 3.11 via uv), installs the pinned stack, fetches NLTK data,
 # verifies data checksums, and runs the CPU-only scorer validation.

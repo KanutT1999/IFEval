@@ -2,7 +2,9 @@
 # One command, whole study:   bash run_all.sh
 #
 # Env overrides:
-#   MODEL_SET=v100_16gb|v100_32gb|open_only   (configs/grid.yaml: model_sets)
+#   HW_PROFILE=auto|rtx_8gb|v100  auto: GPU < 12 GB VRAM -> rtx_8gb, else v100
+#   MODEL_SET=rtx_8gb|rtx_8gb_open|v100_16gb|v100_32gb|open_only   (default follows HW_PROFILE)
+#   GPU_MEM_UTIL=0.9   override vLLM gpu_memory_utilization (lower it if WSL2 runs out of memory)
 #   PHASES="1 2 3"     phase 1 = headline for every model; 2 = repeats + rewordings;
 #                      3 = template ablation + sampling. Phase-major order means a
 #                      budget cut-off still leaves every model with its headline.
@@ -13,13 +15,14 @@ cd "$(dirname "$0")"
 # shellcheck disable=SC1091
 [ -d .venv ] && source .venv/bin/activate
 
-MODEL_SET=${MODEL_SET:-v100_16gb}
+export HW_PROFILE=${HW_PROFILE:-auto}
+MODEL_SET=${MODEL_SET:-$(python -c "from ifeval_v100 import common; print(common.default_model_set(common.load_config()))" 2>/dev/null || echo rtx_8gb)}
 PHASES=${PHASES:-"1 2 3"}
 BACKEND=${BACKEND:-auto}
 mkdir -p results/logs
 LOG=results/logs/run_all_$(date +%Y%m%d_%H%M%S).log
 exec > >(tee -a "$LOG") 2>&1
-echo "== run_all  MODEL_SET=$MODEL_SET  PHASES=$PHASES  BACKEND=$BACKEND  $(date -u)"
+echo "== run_all  HW_PROFILE=$HW_PROFILE  MODEL_SET=$MODEL_SET  PHASES=$PHASES  BACKEND=$BACKEND  $(date -u)"
 T0=$(date +%s)
 
 python -m ifeval_v100.preflight --model-set "$MODEL_SET" || exit 1

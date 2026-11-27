@@ -1,9 +1,12 @@
-# IFEval on small open-weight models, one V100
+# IFEval on small open-weight models, one consumer GPU
 
 An instrument for measuring small open-weight instruction models on **IFEval**
 (Zhou et al. 2023, arXiv:2311.07911): 541 prompts, 25 verifiable instruction types,
 scored by the authors' own code. The paper's models (GPT-4, PaLM 2 S) cannot be run here;
 the goal is a measurement a stranger can re-run and a gap read honestly against Table 3.
+
+Primary hardware: **NVIDIA RTX 3070 Ti, 8 GB, under WSL2 (Ubuntu 22.04 on Windows 11)**.
+A V100 profile is kept so the same code runs on the hardware the brief names.
 
 ## Re-run it
 
@@ -13,8 +16,15 @@ bash smoke.sh          # 2-3 min GPU check: 20 items, smallest model
 bash run_all.sh        # everything -> results/report/REPORT.md
 ```
 
-Options: `MODEL_SET=v100_32gb bash run_all.sh` (adds Qwen2.5-7B), `MODEL_SET=open_only` (no gated
-Llama), `PHASES="1"` (headline only), `BACKEND=hf` (transformers fallback). Runs are resumable.
+Hardware profile is chosen automatically (GPU < 12 GB → `rtx_8gb`, else `v100`) and recorded in
+every manifest. `rtx_8gb` keeps fp16 but sets `max_model_len=2048` (IFEval prompts are < 400
+tokens, so prompt + 1280 output still fits) and `enforce_eager` (no CUDA graphs) to leave room for
+the KV cache. The 3B models are tight on 8 GB and run last; if one does not fit, it is logged and skipped.
+
+Options: `HW_PROFILE=rtx_8gb|v100`, `MODEL_SET=rtx_8gb_open` (no gated Llama),
+`MODEL_SET=v100_32gb` (adds Qwen2.5-7B), `PHASES="1"` (headline only), `BACKEND=hf`
+(transformers fallback), `GPU_MEM_UTIL=0.85` (if vLLM runs out of memory under WSL2),
+`IFEVAL_RESULTS=results_v100` (separate results directory per machine). Runs are resumable.
 Llama 3.2 is gated: accept the license on Hugging Face and `export HF_TOKEN=...` first.
 
 ## What is pinned, and where it is logged
@@ -27,7 +37,8 @@ Llama 3.2 is gated: accept the license on Hugging Face and `export HF_TOKEN=...`
 | Tokenizer / template | same revision as model; chat-template SHA-256; Llama `date_string` pinned | `manifest.json` |
 | Prompt path | exact final string per item, incl. any default system prompt the template injects | `final_prompts.jsonl` |
 | Decoding | greedy, max 1280 new tokens, stop = tokenizer + generation_config EOS; model-repo sampling defaults are **not** applied | `manifest.json` |
-| Precision | fp16 (V100 has no bf16) | `manifest.json` |
+| Precision | fp16 on every GPU (V100 has no bf16; kept for cross-hardware comparability) | `manifest.json` |
+| Hardware | profile + GPU name, VRAM, driver, compute capability | `manifest.json`, `results/env/` |
 | Libraries | `requirements.txt` (vLLM 0.6.6.post1, torch 2.5.1, transformers 4.47.1) + full `pip freeze` | `results/env/` |
 | Raw output | every response, token count, finish reason, truncation flag | `generations.jsonl` |
 | Parser discards | none: the official scorer consumes the raw string; loose mode's 8 transformations are the authors' | `per_item.jsonl` (strict and loose per instruction) |

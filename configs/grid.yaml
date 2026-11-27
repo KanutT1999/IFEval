@@ -2,7 +2,7 @@
 # Every run's manifest.json copies the resolved entries it used from here.
 
 generation:
-  dtype: float16            # V100 has no bf16; weights shipped in bf16 are cast to fp16
+  dtype: float16            # V100 has no bf16; kept fp16 on every GPU so runs are comparable across hardware
   max_new_tokens: 1280      # same budget as lm-evaluation-harness ifeval task
   max_model_len: 4096       # prompt + output; bounds the KV cache
   gpu_memory_utilization: 0.90
@@ -14,6 +14,17 @@ generation:
   # given -> the prompt would change with the calendar. Pin it.
   chat_template_kwargs:
     date_string: "26 Jul 2024"
+
+# Hardware profiles override `generation` above. Selected by HW_PROFILE, or
+# automatically: GPU with < 12 GB VRAM -> rtx_8gb, otherwise v100.
+# Every run's manifest records the profile and the resolved generation settings.
+hardware_profiles:
+  v100: {}
+  rtx_8gb:                  # e.g. RTX 3070 Ti 8 GB, incl. WSL2 (display takes ~0.5-1 GB)
+    max_model_len: 2048     # IFEval prompts are < 400 tokens; 2048 still fits prompt + 1280 output
+    gpu_memory_utilization: 0.90
+    enforce_eager: true     # no CUDA graphs: frees ~0.5-1 GB for KV cache on small cards
+    hf_batch_size: 8
 
 # Model revisions pinned to the HF commit SHA looked up on 2026-11-27.
 models:
@@ -58,6 +69,10 @@ models:
 model_sets:
   v100_16gb: [qwen2.5-0.5b, qwen2.5-1.5b, qwen2.5-3b, smollm2-1.7b, llama3.2-1b, llama3.2-3b]
   v100_32gb: [qwen2.5-0.5b, qwen2.5-1.5b, qwen2.5-3b, qwen2.5-7b, smollm2-1.7b, llama3.2-1b, llama3.2-3b]
+  # 8 GB cards: 3B models are last because they are tight (fp16 weights ~6.2-6.4 GB);
+  # if one does not fit, run_all logs it and moves on.
+  rtx_8gb: [qwen2.5-0.5b, qwen2.5-1.5b, smollm2-1.7b, llama3.2-1b, qwen2.5-3b, llama3.2-3b]
+  rtx_8gb_open: [qwen2.5-0.5b, qwen2.5-1.5b, smollm2-1.7b, qwen2.5-3b]
   open_only: [qwen2.5-0.5b, qwen2.5-1.5b, qwen2.5-3b, smollm2-1.7b]
   local_test: [qwen2.5-0.5b]
 

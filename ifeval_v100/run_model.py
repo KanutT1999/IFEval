@@ -28,12 +28,16 @@ def main():
     ap.add_argument("--backend", default="auto", choices=["auto", "vllm", "hf"])
     ap.add_argument("--limit", type=int, default=None, help="first N items only (smoke tests)")
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--hw-profile", default=None, help="v100 | rtx_8gb | auto (default: $HW_PROFILE or auto)")
     ap.add_argument("--max-new-tokens", type=int, default=None, help="override (smoke tests only)")
     a = ap.parse_args()
 
     cfg = common.load_config()
     m = cfg["models"][a.model]
-    gen_cfg = cfg["generation"]
+    hw = common.resolve_hw_profile(cfg, a.hw_profile)
+    gen_cfg = common.generation_config(cfg, hw)
+    print(f"[hw] profile={hw} max_model_len={gen_cfg['max_model_len']} "
+          f"gpu_mem_util={gen_cfg['gpu_memory_utilization']} enforce_eager={gen_cfg.get('enforce_eager', False)}")
     if a.max_new_tokens:
         gen_cfg["max_new_tokens"] = a.max_new_tokens
     conds = cfg["phases"][a.phase] if a.phase else a.conditions
@@ -90,7 +94,7 @@ def main():
                           "chat_template_sha256": __import__("hashlib").sha256(
                               (tok.chat_template or "").encode()).hexdigest()},
             "params_b": m.get("params_b"), "condition": c, "condition_spec": cond,
-            "variant_spec": variant, "generation": gen_cfg, "stop_token_ids": stop_ids,
+            "variant_spec": variant, "hw_profile": hw, "generation": gen_cfg, "stop_token_ids": stop_ids,
             "precision": gen_cfg["dtype"] if backend.name == "vllm" else backend.info.get("torch_dtype"),
             "backend": backend.info, "n_items": len(items), "limit": a.limit,
             "load_seconds": backend.load_seconds, "generation_seconds": gen_s,

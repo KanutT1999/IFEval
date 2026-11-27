@@ -17,7 +17,7 @@ from ifeval_v100 import common
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model-set", default="v100_16gb")
+    ap.add_argument("--model-set", default="rtx_8gb")
     ap.add_argument("--no-download", action="store_true")
     a = ap.parse_args()
     cfg = common.load_config()
@@ -39,17 +39,21 @@ def main():
         y = x @ x
     torch.cuda.synchronize()
     tf = 20 * 2 * 4096**3 / (time.time() - t) / 1e12
-    print(f"fp16 matmul: {tf:.1f} TFLOPS (V100 peak ~112 tensor-core; 60-90 is healthy)")
+    print(f"fp16 matmul: {tf:.1f} TFLOPS (healthy: V100 ~60-90, RTX 3070 Ti ~40-70)")
     common.write_json(out / "fp16_matmul.json", {"tflops": tf, "finite": bool(torch.isfinite(y).all())})
 
     mem = env.get("gpu_mem_gb") or 0
+    hw = common.resolve_hw_profile(cfg)
+    gen = common.generation_config(cfg, hw)
+    common.write_json(out / "hw_profile.json", {"profile": hw, "generation": gen})
+    print(f"hardware profile: {hw}")
     models = cfg["model_sets"][a.model_set]
     bad = []
     for mk in models:
         m = cfg["models"][mk]
         need = 2 * m["params_b"] + 1.5
-        if need > mem * cfg["generation"]["gpu_memory_utilization"]:
-            print(f"[warn] {mk}: ~{need:.1f} GB fp16 weights+overhead > {mem} GB GPU")
+        if need > mem * gen["gpu_memory_utilization"]:
+            print(f"[warn] {mk}: ~{need:.1f} GB fp16 weights+overhead vs {mem} GB GPU -> may not fit (will be tried last)")
         if a.no_download:
             continue
         try:
