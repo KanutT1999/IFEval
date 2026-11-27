@@ -1,0 +1,108 @@
+# Single source of truth for what gets measured.
+# Every run's manifest.json copies the resolved entries it used from here.
+
+generation:
+  dtype: float16            # V100 has no bf16; weights shipped in bf16 are cast to fp16
+  max_new_tokens: 1280      # same budget as lm-evaluation-harness ifeval task
+  max_model_len: 4096       # prompt + output; bounds the KV cache
+  gpu_memory_utilization: 0.90
+  hf_batch_size: 32         # only used by the transformers fallback backend
+  sampling:                 # only for the deliberate variance experiment
+    temperature: 0.7
+    top_p: 0.95
+  # Llama 3.x chat templates insert "Today Date: <today>" unless date_string is
+  # given -> the prompt would change with the calendar. Pin it.
+  chat_template_kwargs:
+    date_string: "26 Jul 2024"
+
+# Model revisions pinned to the HF commit SHA looked up on 2026-11-27.
+models:
+  qwen2.5-0.5b:
+    hf_id: Qwen/Qwen2.5-0.5B-Instruct
+    revision: 7ae557604adf67be50417f59c2c2f167def9a775
+    params_b: 0.49
+    family: qwen2.5
+  qwen2.5-1.5b:
+    hf_id: Qwen/Qwen2.5-1.5B-Instruct
+    revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+    params_b: 1.54
+    family: qwen2.5
+  qwen2.5-3b:
+    hf_id: Qwen/Qwen2.5-3B-Instruct
+    revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+    params_b: 3.09
+    family: qwen2.5
+  qwen2.5-7b:
+    hf_id: Qwen/Qwen2.5-7B-Instruct
+    revision: a09a35458c702b33eeacc393d103063234e8bc28
+    params_b: 7.62          # ~15.2 GB fp16 weights -> 32 GB V100 only
+    family: qwen2.5
+  smollm2-1.7b:
+    hf_id: HuggingFaceTB/SmolLM2-1.7B-Instruct
+    revision: 31b70e2e869a7173562077fd711b654946d38674
+    params_b: 1.71
+    family: smollm2
+  llama3.2-1b:
+    hf_id: meta-llama/Llama-3.2-1B-Instruct
+    revision: 9213176726f574b556790deb65791e0c5aa438b6
+    params_b: 1.24
+    family: llama3.2
+    gated: true             # needs HF_TOKEN with accepted license
+  llama3.2-3b:
+    hf_id: meta-llama/Llama-3.2-3B-Instruct
+    revision: 0cb88a4f764b7a12671c53f0838cd831a0843b95
+    params_b: 3.21
+    family: llama3.2
+    gated: true
+
+model_sets:
+  v100_16gb: [qwen2.5-0.5b, qwen2.5-1.5b, qwen2.5-3b, smollm2-1.7b, llama3.2-1b, llama3.2-3b]
+  v100_32gb: [qwen2.5-0.5b, qwen2.5-1.5b, qwen2.5-3b, qwen2.5-7b, smollm2-1.7b, llama3.2-1b, llama3.2-3b]
+  open_only: [qwen2.5-0.5b, qwen2.5-1.5b, qwen2.5-3b, smollm2-1.7b]
+  local_test: [qwen2.5-0.5b]
+
+# Prompt variants. "plain" is the canonical path (prompt verbatim as the single
+# user turn, the model's own chat template). The next three are
+# meaning-preserving rewordings of the wrapper. "no_template" is an ablation.
+variants:
+  plain:          {system: null, user: "{prompt}", chat_template: true}
+  sys_helpful:    {system: "You are a helpful assistant.", user: "{prompt}", chat_template: true}
+  prefix_please:  {system: null, user: "Please respond to the following request.\n\n{prompt}", chat_template: true}
+  labelled:       {system: null, user: "Request:\n{prompt}", chat_template: true}
+  no_template:    {system: null, user: "{prompt}", chat_template: false}
+
+# A condition = variant + decoding (+ seeds).
+# order_seed permutes the order prompts are submitted (changes batch makeup,
+# which is the main source of fp16 non-determinism under greedy decoding).
+conditions:
+  greedy_plain_r0:      {variant: plain, decoding: greedy, order_seed: 0}
+  greedy_plain_r1:      {variant: plain, decoding: greedy, order_seed: 1}
+  greedy_plain_r2:      {variant: plain, decoding: greedy, order_seed: 2}
+  greedy_sys_helpful:   {variant: sys_helpful, decoding: greedy, order_seed: 0}
+  greedy_prefix_please: {variant: prefix_please, decoding: greedy, order_seed: 0}
+  greedy_labelled:      {variant: labelled, decoding: greedy, order_seed: 0}
+  greedy_no_template:   {variant: no_template, decoding: greedy, order_seed: 0}
+  sample_plain_s0:      {variant: plain, decoding: sample, seed: 0, order_seed: 0}
+  sample_plain_s1:      {variant: plain, decoding: sample, seed: 1, order_seed: 0}
+  sample_plain_s2:      {variant: plain, decoding: sample, seed: 2, order_seed: 0}
+  sample_plain_s3:      {variant: plain, decoding: sample, seed: 3, order_seed: 0}
+  sample_plain_s4:      {variant: plain, decoding: sample, seed: 4, order_seed: 0}
+
+headline_condition: greedy_plain_r0
+repeat_conditions: [greedy_plain_r0, greedy_plain_r1, greedy_plain_r2]
+rewording_conditions: [greedy_plain_r0, greedy_sys_helpful, greedy_prefix_please, greedy_labelled]
+sampling_conditions: [sample_plain_s0, sample_plain_s1, sample_plain_s2, sample_plain_s3, sample_plain_s4]
+
+# Phases are run phase-major (all models phase 1, then all models phase 2...)
+# so that if the GPU budget runs out, every model already has its headline.
+phases:
+  "1": [greedy_plain_r0]
+  "2": [greedy_plain_r1, greedy_plain_r2, greedy_sys_helpful, greedy_prefix_please, greedy_labelled]
+  "3": [greedy_no_template, sample_plain_s0, sample_plain_s1, sample_plain_s2, sample_plain_s3, sample_plain_s4]
+
+# Zhou et al. 2023, arXiv:2311.07911 v1, Table 3 (percent).
+# Responses collected via API: GPT-4 Nov 2023, PaLM 2 S Aug 2023.
+# The paper does not state decoding settings.
+paper:
+  GPT-4:    {prompt_strict: 76.89, inst_strict: 83.57, prompt_loose: 79.30, inst_loose: 85.37}
+  PaLM 2 S: {prompt_strict: 43.07, inst_strict: 55.76, prompt_loose: 46.95, inst_loose: 59.11}

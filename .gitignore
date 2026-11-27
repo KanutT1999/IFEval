@@ -1,0 +1,8 @@
+.venv/
+.venv-local/
+__pycache__/
+*.pyc
+results/smoke/
+results/smoke_out/
+*.tgz
+nltk_data/

@@ -1,0 +1,28 @@
+# Pinned environment for a single NVIDIA V100 (Volta, compute capability 7.0).
+#
+# Why these versions: vLLM >= ~0.7 dropped/de-prioritised Volta (current docs
+# require CC >= 7.5). vLLM 0.6.6.post1 is the last widely used release that runs
+# on V100 (V0 engine, xFormers attention backend, fp16). It pins torch 2.5.1
+# (CUDA 12.4 wheels, which still ship sm_70 kernels).
+# Python 3.10 or 3.11 required. Host NVIDIA driver must support CUDA 12.4 (>= 550).
+
+vllm==0.6.6.post1
+torch==2.5.1
+xformers==0.0.28.post3
+transformers==4.47.1
+tokenizers==0.21.0
+accelerate==1.2.1
+huggingface_hub==0.27.1
+datasets==3.2.0
+
+# Official IFEval scorer dependencies (google-research/instruction_following_eval)
+absl-py==2.1.0
+langdetect==1.0.9
+nltk==3.9.1
+immutabledict==4.2.1
+
+# Analysis
+numpy==1.26.4
+pandas==2.2.3
+matplotlib==3.9.4
+pyyaml==6.0.2
