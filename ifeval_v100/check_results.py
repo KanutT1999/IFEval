@@ -25,6 +25,7 @@ def nlines(p: Path) -> int:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model-set", default=None)
+    ap.add_argument("--phases", default="1 2 3", help='e.g. "1 2" if phase 3 was not run')
     a = ap.parse_args()
     cfg = common.load_config()
     mset = a.model_set or common.default_model_set(cfg)
@@ -33,7 +34,7 @@ def main():
     ua = common.RESULTS / "env" / "unavailable_models.txt"
     if ua.exists():
         unavailable = {x.strip() for x in ua.read_text().split() if x.strip()}
-    all_conds = [c for ph in sorted(cfg["phases"]) for c in cfg["phases"][ph]]
+    all_conds = [c for ph in a.phases.split() for c in cfg["phases"][ph]]
     errors, warns = [], []
 
     print(f"== results dir: {common.RESULTS}   model set: {mset}")
