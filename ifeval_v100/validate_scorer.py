@@ -86,15 +86,49 @@ def main():
 
     seeded = score.score_responses(items, resp, "official", langdetect_seed=0)
     rep["official_seeded"] = score.metrics(seeded)
+    reseeded = [score.score_responses(items, resp, "official", langdetect_seed=0) for _ in range(3)]
+    rep["seeded_is_deterministic"] = all(r == seeded for r in reseeded)
 
-    unseeded = [score.metrics(score.score_responses(items, resp, "official", langdetect_seed=None))
-                for _ in range(a.unseeded_repeats)]
-    rep["official_unseeded"] = {m: {"min": min(u[m] for u in unseeded), "max": max(u[m] for u in unseeded),
-                                    "mean": statistics.mean(u[m] for u in unseeded)} for m in METRICS}
-    rep["official_unseeded_n"] = a.unseeded_repeats
+    def spread(ld, rs, n):
+        per = [score.score_responses(items, resp, "official", langdetect_seed=ld, random_seed=rs) for _ in range(n)]
+        ms = [score.metrics(x) for x in per]
+        flips = sorted({items[j]["key"] for j in range(len(items))
+                        if len({(tuple(x[j]["strict"]), tuple(x[j]["loose"])) for x in per}) > 1})
+        return ({m: {"min": min(u[m] for u in ms), "max": max(u[m] for u in ms),
+                     "mean": statistics.mean(u[m] for u in ms)} for m in METRICS}, flips)
+
+    n = a.unseeded_repeats
+    rep["official_unseeded"], flips_all = spread(None, None, n)            # original behaviour
+    rep["only_random_unseeded"], flips_rand = spread(0, None, max(n // 3, 5))   # langdetect seeded
+    rep["only_langdetect_unseeded"], flips_ld = spread(None, 0, max(n // 3, 5))  # random seeded
+    rep["official_unseeded_n"] = n
+    by_key = {it["key"]: it for it in items}
+    rep["flipping_items"] = {
+        "any": flips_all, "from_python_random": flips_rand, "from_langdetect": flips_ld,
+        "detail": {k: {"instructions": by_key[k]["instruction_id_list"], "kwargs": by_key[k]["kwargs"]}
+                   for k in sorted(set(flips_all) | set(flips_rand) | set(flips_ld))}}
+    # Exact attainable range: re-score each flipping item under many random draws (items are
+    # independent), then add the per-item extremes to the fixed contribution of all other items.
+    flip_idx = [j for j, it in enumerate(items) if it["key"] in set(flips_all) | set(flips_rand)]
+    att = {}
+    if flip_idx:
+        opts = {j: [score.score_responses([items[j]], resp, "official", langdetect_seed=0, random_seed=s)[0]
+                    for s in range(300)] for j in flip_idx}
+        n_inst = sum(len(r["strict"]) for r in seeded)
+        for m in METRICS:
+            mode, lvl = m.split("_")[1], m.split("_")[0]
+            val = (lambda r: int(r[f"prompt_{mode}"])) if lvl == "prompt" else (lambda r: sum(r[mode]))
+            den = len(items) if lvl == "prompt" else n_inst
+            base = sum(val(r) for j, r in enumerate(seeded) if j not in opts)
+            lo = base + sum(min(val(r) for r in o) for o in opts.values())
+            hi = base + sum(max(val(r) for r in o) for o in opts.values())
+            att[m] = {"min": 100 * lo / den, "max": 100 * hi / den}
+    else:
+        att = {m: {"min": rep["official_seeded"][m], "max": rep["official_seeded"][m]} for m in METRICS}
+    rep["official_attainable_range"] = att
     # Table 3 is printed to 2 decimals (e.g. 712/834 = 85.3717 -> "85.37"), so compare at that precision.
     rep["paper_within_unseeded_range"] = {
-        m: round(rep["official_unseeded"][m]["min"], 2) <= cfg["paper"]["GPT-4"][m] <= round(rep["official_unseeded"][m]["max"], 2)
+        m: round(att[m]["min"], 2) <= cfg["paper"]["GPT-4"][m] <= round(att[m]["max"], 2)
         for m in METRICS}
 
     lme = score.score_responses(items, resp, "lmeval", langdetect_seed=0)
@@ -119,11 +153,21 @@ def main():
     L = ["# Scorer validation", "",
          "Authors' GPT-4 responses (2023-11-07), authors' item list at commit 066e1eda (2023-11-27),",
          f"authors' scorer at commit {common.OFFICIAL_SCORER_COMMIT[:8]}.", "",
-         "| metric | paper Table 3 | official, langdetect seeded | official, unseeded min–max (n=%d) | lm-eval port, seeded |" % a.unseeded_repeats,
-         "|---|---|---|---|---|"]
+         "| metric | paper Table 3 | official, seeded (ours) | official, original unseeded min–max (n=%d) "
+         "| exact attainable range | only `random` unseeded | only langdetect unseeded | lm-eval port, seeded |" % a.unseeded_repeats,
+         "|---|---|---|---|---|---|---|---|"]
+    rng = lambda u: f"{u['min']:.2f}–{u['max']:.2f}"
     for m in METRICS:
-        u = rep["official_unseeded"][m]
-        L.append(f"| {m} | {p[m]:.2f} | {rep['official_seeded'][m]:.2f} | {u['min']:.2f}–{u['max']:.2f} | {rep['lmeval_seeded'][m]:.2f} |")
+        L.append(f"| {m} | {p[m]:.2f} | {rep['official_seeded'][m]:.2f} | {rng(rep['official_unseeded'][m])} | {rng(att[m])} "
+                 f"| {rng(rep['only_random_unseeded'][m])} | {rng(rep['only_langdetect_unseeded'][m])} "
+                 f"| {rep['lmeval_seeded'][m]:.2f} |")
+    fl = rep["flipping_items"]
+    L += ["", f"Seeded scoring repeated 4x gives identical per-instruction results: "
+              f"{'yes' if rep['seeded_is_deterministic'] else 'NO'}.",
+          f"Items whose score changes between unseeded runs: {fl['any']} "
+          f"(from Python `random`: {fl['from_python_random']}; from langdetect: {fl['from_langdetect']})."]
+    for k, v in fl["detail"].items():
+        L.append(f"- key {k}: {v['instructions']} kwargs={v['kwargs']}")
     ag = rep["agreement_gpt4_official_vs_lmeval"]
     L += ["", f"Official vs lm-eval port on GPT-4 responses (both seeded): instruction-level agreement "
               f"{100*ag['instruction_agreement']:.2f}%, prompt-level {100*ag['prompt_agreement']:.2f}% "
@@ -133,8 +177,10 @@ def main():
                  f"prompt {100*v['prompt_agreement']:.2f}% ({v['n_disagreements']} disagreements)")
     d = rep["item_drift"]
     inr = rep["paper_within_unseeded_range"]
-    L += ["", "Paper value inside the unseeded-scorer range: " + ", ".join(f"{m} {'yes' if v else 'NO'}" for m, v in inr.items())
-          + ". The official scorer is not deterministic (langdetect is unseeded); we seed it (DetectorFactory.seed=0) for all model runs.",
+    L += ["", "Paper value inside the exact attainable range of the original scorer: " + ", ".join(f"{m} {'yes' if v else 'NO'}" for m, v in inr.items())
+          + ". The official scorer is not deterministic. Main cause: `keywords:letter_frequency` with a non-letter "
+          "(e.g. '#', '!') silently checks a random a-z letter drawn from Python `random`. We reseed `random` per item "
+          "and seed langdetect for all model runs (`--no-seed` restores the original behaviour).",
           "", "Item list: canonical = authors' file at commit 066e1eda (2023-11-27), the list the paper's GPT-4 responses answer. "
           f"The authors' latest file differs on keys {d['canonical_vs_latest_github_changed_keys']}."]
     if "hf_vs_canonical_changed_keys" in d:

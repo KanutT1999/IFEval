@@ -32,7 +32,7 @@ Llama 3.2 is gated: accept the license on Hugging Face and `export HF_TOKEN=...`
 | What | Pinned to | Logged in |
 |---|---|---|
 | Items | authors' `input_data.jsonl` @ 066e1eda (2023-11-27) = HF `google/IFEval@966cd895`, SHA-256 checked | `ifeval_v100/common.py`, `scorer_validation.md` |
-| Scorer | authors' `instruction_following_eval` @ e6890f85, unmodified; langdetect seeded (see below) | each `scores.json` |
+| Scorer | authors' `instruction_following_eval` @ e6890f85, unmodified; Python `random` reseeded per item + langdetect seeded (see below) | each `scores.json` |
 | Models | HF commit SHA per model (`configs/grid.yaml`) | each `manifest.json` |
 | Tokenizer / template | same revision as model; chat-template SHA-256; Llama `date_string` pinned | `manifest.json` |
 | Prompt path | exact final string per item, incl. any default system prompt the template injects | `final_prompts.jsonl` |
@@ -80,13 +80,16 @@ models' own greedy spread.
 ## Scorer findings so far (CPU, no GPU needed)
 
 - **Table 3 is reproduced within scorer noise.** Scoring the authors' released GPT-4 responses with
-  the authors' scorer, each of the paper's four numbers (76.89 / 83.57 / 79.30 / 85.37) appears among
-  repeated unseeded scoring runs. The exact numbers per run are in `results/scorer_validation.md`.
-- **The official scorer is not deterministic.** `langdetect` is unseeded, so repeated scoring of
-  *identical* responses moves prompt-strict between 76.71 and 77.08. We seed it
-  (`DetectorFactory.seed = 0`) for every model run and report the unseeded spread
-  (`results/scorer_validation.md`). This is a harness fix, measured against the original.
-- **lm-eval port vs official:** about 99.9% instruction-level agreement on GPT-4 responses (1–2
-  disagreeing instructions out of 1,668 strict+loose checks); listed in `scorer_validation.json`.
+  the authors' scorer, all four of the paper's numbers (76.89 / 83.57 / 79.30 / 85.37) lie inside the
+  exact range the original scorer can produce on those responses (`results/scorer_validation.md`).
+- **The official scorer is not deterministic, and the cause is not langdetect.** In two items
+  (keys 1122, 1129) `keywords:letter_frequency` asks for `#` and `!`; the checker only accepts
+  a–z, so it silently draws a *random* letter (Python `random`) and counts that instead. Repeated
+  scoring of *identical* GPT-4 responses therefore moves prompt-strict between 76.71 and 77.08.
+  Seeding langdetect alone changes nothing (measured). We reseed `random` per item
+  (`seed*1000003 + key`), which makes scoring order-independent and deterministic (verified by
+  repeat scoring); `--no-seed` restores the original. This is a harness fix, measured against the original.
+- **lm-eval port vs official:** 100% instruction-level agreement on GPT-4 responses once both are
+  seeded; the earlier 1–2 disagreements came from the same random letter (`scorer_validation.json`).
 - **Item drift:** the authors edited key 2785 in June 2024. HF and lm-eval still serve the
   2023-11-27 list, which we use; the difference is reported.

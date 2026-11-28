@@ -280,7 +280,7 @@ def main():
                            "95% CI": f"[{lo:+.1f}, {hi:+.1f}]"})
     R += [md_table(pd.DataFrame(ab)) if ab else "(phase 3 not run)", ""]
     sv = common.RESULTS / "scorer_validation.md"
-    R += ["### 8b. Scorer validation and the langdetect fix", "",
+    R += ["### 8b. Scorer validation and the scorer-determinism fix", "",
           (sv.read_text().replace("# Scorer validation", "").strip() if sv.exists()
            else "(run `python -m ifeval_v100.validate_scorer`)"), ""]
 

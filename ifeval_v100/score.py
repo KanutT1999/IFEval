@@ -1,10 +1,17 @@
 """Scoring with the authors' code (google-research/instruction_following_eval).
 
-The official functions are called unmodified. The only thing this wrapper adds
-is the option to seed langdetect (used by `language:response_language` and a
-few other checks), which is otherwise random per call -> the official scorer is
-not deterministic. Seeding is ON by default and recorded; `--no-seed-langdetect`
-reproduces the original behaviour. See validate_scorer.py for the measurement.
+The official functions are called unmodified. The official scorer is not deterministic,
+for two reasons this wrapper can switch off (ON by default, recorded in scores.json):
+
+1. Python `random`: some checkers fill missing/invalid kwargs with random values when
+   they are built. In the 2023-11-27 items, `keywords:letter_frequency` asks for '#'
+   (key 1122) and '!' (key 1129); the checker only accepts a-z, so it silently counts a
+   *random* letter instead. We reseed `random` per item (seed*1000003 + key), so the same
+   response always gets the same check, independent of scoring order.
+2. langdetect (used by `language:response_language`) is unseeded; we set
+   `DetectorFactory.seed`.
+
+`--no-seed` reproduces the original behaviour. validate_scorer.py measures each source.
 
 Usage:
   python -m ifeval_v100.score --generations results/runs/<model>/<cond>/generations.jsonl
@@ -75,7 +82,11 @@ def score_one(item: dict, response: str, scorer: str = "official") -> dict:
 
 
 def score_responses(items: list[dict], responses: dict, scorer: str = "official",
-                    langdetect_seed: int | None = 0) -> list[dict]:
+                    langdetect_seed: int | None = 0, random_seed="same") -> list[dict]:
+    """random_seed="same" -> follow langdetect_seed (seed both, or neither)."""
+    import random
+    if random_seed == "same":
+        random_seed = langdetect_seed
     ensure_nltk()
     seed_langdetect(langdetect_seed)
     out = []
@@ -83,6 +94,8 @@ def score_responses(items: list[dict], responses: dict, scorer: str = "official"
         r = responses.get(it["key"])
         if r is None:
             raise KeyError(f"no response for key {it['key']}")
+        if random_seed is not None:
+            random.seed(random_seed * 1000003 + int(it["key"]))
         out.append(score_one(it, r, scorer))
     return out
 
@@ -109,6 +122,7 @@ def score_run_dir(run_dir: Path, scorer: str = "official", langdetect_seed: int 
     per_item = score_responses(sel, {g["key"]: g["response"] for g in gens}, scorer, langdetect_seed)
     m = metrics(per_item)
     m.update({"scorer": scorer, "langdetect_seed": langdetect_seed,
+              "python_random_seed": None if langdetect_seed is None else f"{langdetect_seed}*1000003+key",
               "official_scorer_commit": common.OFFICIAL_SCORER_COMMIT})
     suffix = "" if scorer == "official" else f"_{scorer}"
     common.write_jsonl(run_dir / f"per_item{suffix}.jsonl", per_item)
@@ -118,13 +132,29 @@ def score_run_dir(run_dir: Path, scorer: str = "official", langdetect_seed: int 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--generations", required=True, type=Path)
+    g = ap.add_mutually_exclusive_group(required=True)
+    g.add_argument("--generations", type=Path)
+    g.add_argument("--all", action="store_true", help="re-score every run under results/runs (CPU)")
     ap.add_argument("--scorer", default="official", choices=["official", "lmeval"])
-    ap.add_argument("--no-seed-langdetect", action="store_true")
+    ap.add_argument("--no-seed", action="store_true", help="original, non-deterministic behaviour")
     a = ap.parse_args()
-    m = score_run_dir(a.generations.parent, a.scorer, None if a.no_seed_langdetect else 0)
-    for k in ("prompt_strict", "inst_strict", "prompt_loose", "inst_loose"):
-        print(f"{k:14s} {m[k]:6.2f}")
+    seed = None if a.no_seed else 0
+    if a.generations:
+        m = score_run_dir(a.generations.parent, a.scorer, seed)
+        for k in ("prompt_strict", "inst_strict", "prompt_loose", "inst_loose"):
+            print(f"{k:14s} {m[k]:6.2f}")
+        return
+    import json
+    for gp in sorted(common.RUNS.glob("*/*/generations.jsonl")):
+        d = gp.parent
+        m = score_run_dir(d, a.scorer, seed)
+        man_p = d / "manifest.json"
+        if a.scorer == "official" and man_p.exists():
+            man = json.loads(man_p.read_text())
+            man["scores"] = {k: m[k] for k in ("prompt_strict", "inst_strict", "prompt_loose", "inst_loose")}
+            man["rescored_with"] = {"langdetect_seed": seed, "python_random_seed": m["python_random_seed"]}
+            common.write_json(man_p, man)
+        print(f"{d.parent.name:14s} {d.name:22s} P-S {m['prompt_strict']:6.2f}  I-S {m['inst_strict']:6.2f}", flush=True)
 
 
 if __name__ == "__main__":
