@@ -1,0 +1,103 @@
+{
+  "complete": true,
+  "model_key": "smollm2-1.7b",
+  "hf_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "revision": "31b70e2e869a7173562077fd711b654946d38674",
+  "tokenizer": {
+    "hf_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "revision": "31b70e2e869a7173562077fd711b654946d38674",
+    "class": "GPT2TokenizerFast",
+    "chat_template_sha256": "872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788"
+  },
+  "params_b": 1.71,
+  "condition": "greedy_prefix_please",
+  "condition_spec": {
+    "variant": "prefix_please",
+    "decoding": "greedy",
+    "order_seed": 0
+  },
+  "variant_spec": {
+    "system": null,
+    "user": "Please respond to the following request.\n\n{prompt}",
+    "chat_template": true
+  },
+  "hw_profile": "rtx_8gb",
+  "generation": {
+    "dtype": "float16",
+    "max_new_tokens": 1280,
+    "max_model_len": 2048,
+    "gpu_memory_utilization": 0.9,
+    "hf_batch_size": 8,
+    "sampling": {
+      "temperature": 0.7,
+      "top_p": 0.95
+    },
+    "chat_template_kwargs": {
+      "date_string": "26 Jul 2024"
+    },
+    "enforce_eager": true
+  },
+  "stop_token_ids": [
+    2
+  ],
+  "precision": "float16",
+  "backend": {
+    "backend": "vllm",
+    "vllm_version": "0.6.6.post1"
+  },
+  "n_items": 541,
+  "limit": null,
+  "load_seconds": 11.288195610046387,
+  "generation_seconds": 209.54857802391052,
+  "gpu_hours_generation": 0.058207938339975146,
+  "started_unix": 1795802349.9936109,
+  "env": {
+    "python": "3.11.18 (main, Nov 24 2026, 16:57:34) [Clang 23.1.3 ]",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "hostname_hash": "d3cafa5850d7",
+    "libraries": {
+      "torch": "2.5.1+cu124",
+      "vllm": "0.6.6.post1",
+      "xformers": "0.0.28.post3",
+      "transformers": "4.47.1",
+      "tokenizers": "0.21.0",
+      "accelerate": "1.2.1",
+      "huggingface_hub": "0.27.1",
+      "datasets": null,
+      "nltk": "3.9.1",
+      "langdetect": "unknown",
+      "absl": "unknown",
+      "immutabledict": "4.2.1",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3"
+    },
+    "official_scorer_commit": "e6890f85757dd84e27ca6df2dd30651dafad28e0",
+    "lm_eval_port_tag": "v0.4.13",
+    "data_sha256": {
+      "input_data_066e1eda_2023-11-27.jsonl": "86ea91641ee9e6b891330f3f019e82c481abddbdea5945106df1dfe59757fbc2",
+      "input_data.jsonl": "67ffeee0fcb87c317c5b08a2de85557b4a7e96ada6178aa645b4954fe4b53d49",
+      "input_response_data_gpt4_20231107_145030.jsonl": "0cff1d1469b774e80296bee20ca696894df35f3c6d6539f2c886d67c07599dcb"
+    },
+    "repo_commit": "3deb13f773a3f996a8b6130a48424479f9ce44b0",
+    "repo_dirty": true,
+    "nvidia_smi": "NVIDIA GeForce RTX 3070 Ti, 8192 MiB, 621.01, 8.6",
+    "cuda_available": true,
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti",
+    "gpu_capability": [
+      8,
+      6
+    ],
+    "torch_cuda": "12.4",
+    "gpu_mem_gb": 8.0
+  },
+  "scores": {
+    "prompt_strict": 49.90757855822551,
+    "inst_strict": 60.31175059952039,
+    "prompt_loose": 52.68022181146026,
+    "inst_loose": 63.42925659472422
+  },
+  "rescored_with": {
+    "langdetect_seed": 0,
+    "python_random_seed": "0*1000003+key"
+  }
+}

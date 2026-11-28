@@ -1,0 +1,541 @@
+{"key": 1000, "instruction_id_list": ["punctuation:no_comma", "detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1001, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1005, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1012, "instruction_id_list": ["combination:repeat_prompt", "detectable_format:title"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1019, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 102, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1021, "instruction_id_list": ["change_case:english_capital", "detectable_format:multiple_sections"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1040, "instruction_id_list": ["change_case:capital_word_frequency", "change_case:capital_word_frequency", "startend:quotation"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1051, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1069, "instruction_id_list": ["keywords:existence", "length_constraints:number_words", "punctuation:no_comma"], "strict": [false, false, false], "loose": [false, false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1072, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1075, "instruction_id_list": ["detectable_format:json_format"], "strict": [false], "loose": [true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1082, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1087, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1092, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1094, "instruction_id_list": ["detectable_format:json_format"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1098, "instruction_id_list": ["combination:two_responses"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1107, "instruction_id_list": ["punctuation:no_comma", "combination:two_responses"], "strict": [true, false], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1108, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1122, "instruction_id_list": ["change_case:english_lowercase", "keywords:letter_frequency"], "strict": [true, false], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1127, "instruction_id_list": ["detectable_format:multiple_sections", "startend:end_checker"], "strict": [true, false], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1128, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1129, "instruction_id_list": ["keywords:letter_frequency", "combination:repeat_prompt"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1130, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1131, "instruction_id_list": ["detectable_format:multiple_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1132, "instruction_id_list": ["change_case:english_capital", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1137, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1139, "instruction_id_list": ["combination:repeat_prompt", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1147, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1148, "instruction_id_list": ["detectable_format:json_format"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1153, "instruction_id_list": ["change_case:english_lowercase", "keywords:frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1154, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1162, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1174, "instruction_id_list": ["keywords:letter_frequency", "length_constraints:number_sentences", "detectable_format:number_highlighted_sections"], "strict": [false, false, true], "loose": [false, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1180, "instruction_id_list": ["combination:two_responses", "detectable_format:title"], "strict": [false, true], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1187, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1203, "instruction_id_list": ["keywords:frequency", "keywords:frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1216, "instruction_id_list": ["startend:quotation", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1217, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1219, "instruction_id_list": ["change_case:english_capital", "detectable_content:postscript", "keywords:frequency"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 122, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1220, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1233, "instruction_id_list": ["startend:end_checker", "keywords:frequency"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1236, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1237, "instruction_id_list": ["detectable_format:number_highlighted_sections", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1242, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1246, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1248, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1251, "instruction_id_list": ["length_constraints:number_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1258, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1259, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1262, "instruction_id_list": ["detectable_format:title", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1265, "instruction_id_list": ["keywords:existence", "length_constraints:number_sentences"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1268, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 127, "instruction_id_list": ["keywords:forbidden_words", "keywords:frequency"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1281, "instruction_id_list": ["combination:repeat_prompt", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1286, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1287, "instruction_id_list": ["detectable_format:number_bullet_lists", "change_case:english_lowercase"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 13, "instruction_id_list": ["detectable_format:json_format"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1300, "instruction_id_list": ["punctuation:no_comma", "keywords:letter_frequency", "length_constraints:number_words"], "strict": [false, false, false], "loose": [false, false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1305, "instruction_id_list": ["detectable_content:postscript", "detectable_format:number_bullet_lists"], "strict": [true, false], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1307, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1314, "instruction_id_list": ["change_case:capital_word_frequency", "change_case:capital_word_frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1322, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1325, "instruction_id_list": ["startend:quotation", "detectable_format:number_bullet_lists"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1332, "instruction_id_list": ["combination:two_responses"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1342, "instruction_id_list": ["keywords:frequency", "detectable_format:number_highlighted_sections", "length_constraints:number_paragraphs"], "strict": [true, true, false], "loose": [true, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1348, "instruction_id_list": ["punctuation:no_comma", "detectable_format:number_highlighted_sections", "keywords:existence"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 136, "instruction_id_list": ["detectable_format:number_bullet_lists", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1361, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1367, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1372, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1375, "instruction_id_list": ["length_constraints:number_paragraphs", "keywords:existence"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1377, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1379, "instruction_id_list": ["detectable_format:number_highlighted_sections", "keywords:frequency", "keywords:existence"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1381, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [false], "loose": [true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1389, "instruction_id_list": ["change_case:english_capital", "keywords:letter_frequency"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1392, "instruction_id_list": ["detectable_format:title", "length_constraints:number_sentences", "length_constraints:number_words"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1393, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1402, "instruction_id_list": ["keywords:letter_frequency", "keywords:forbidden_words"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1418, "instruction_id_list": ["punctuation:no_comma", "length_constraints:number_sentences", "length_constraints:number_sentences"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 142, "instruction_id_list": ["startend:quotation", "keywords:frequency", "keywords:existence"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 143, "instruction_id_list": ["length_constraints:number_paragraphs", "detectable_content:postscript"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1436, "instruction_id_list": ["change_case:english_lowercase", "keywords:forbidden_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1446, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1466, "instruction_id_list": ["startend:quotation", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1476, "instruction_id_list": ["keywords:forbidden_words", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1477, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1480, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1481, "instruction_id_list": ["detectable_format:multiple_sections", "detectable_format:number_bullet_lists"], "strict": [false, false], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1498, "instruction_id_list": ["keywords:frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1508, "instruction_id_list": ["keywords:existence", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1512, "instruction_id_list": ["detectable_content:number_placeholders", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1516, "instruction_id_list": ["change_case:english_lowercase", "keywords:existence"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1518, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 152, "instruction_id_list": ["change_case:english_lowercase", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1531, "instruction_id_list": ["keywords:existence"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1535, "instruction_id_list": ["change_case:english_lowercase", "length_constraints:number_sentences"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1537, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1546, "instruction_id_list": ["combination:repeat_prompt", "punctuation:no_comma"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1548, "instruction_id_list": ["detectable_format:multiple_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1551, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1561, "instruction_id_list": ["combination:repeat_prompt", "detectable_format:title"], "strict": [false, true], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1566, "instruction_id_list": ["change_case:english_capital"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1571, "instruction_id_list": ["keywords:frequency", "change_case:english_lowercase", "keywords:existence"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1580, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1582, "instruction_id_list": ["combination:two_responses", "language:response_language", "punctuation:no_comma"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1591, "instruction_id_list": ["combination:two_responses"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1592, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1593, "instruction_id_list": ["change_case:english_lowercase"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 16, "instruction_id_list": ["detectable_format:title", "combination:repeat_prompt"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1601, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1609, "instruction_id_list": ["length_constraints:nth_paragraph_first_word", "startend:quotation"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1619, "instruction_id_list": ["detectable_content:postscript", "detectable_content:number_placeholders"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1620, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1627, "instruction_id_list": ["combination:repeat_prompt", "detectable_format:title", "punctuation:no_comma"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1629, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 163, "instruction_id_list": ["startend:quotation", "keywords:letter_frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1634, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 164, "instruction_id_list": ["length_constraints:number_words"], "strict": [false], "loose": [true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1643, "instruction_id_list": ["punctuation:no_comma", "length_constraints:number_words"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1644, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1645, "instruction_id_list": ["change_case:english_capital"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1646, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1653, "instruction_id_list": ["change_case:capital_word_frequency", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1656, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1658, "instruction_id_list": ["startend:quotation", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1659, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1667, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 167, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1670, "instruction_id_list": ["startend:quotation", "length_constraints:number_paragraphs", "change_case:capital_word_frequency"], "strict": [false, false, true], "loose": [false, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1675, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 168, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1686, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1691, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1705, "instruction_id_list": ["detectable_content:postscript", "startend:end_checker"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1713, "instruction_id_list": ["keywords:frequency", "detectable_format:number_highlighted_sections"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1730, "instruction_id_list": ["startend:quotation", "detectable_format:multiple_sections"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1733, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1738, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1739, "instruction_id_list": ["punctuation:no_comma", "language:response_language"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1746, "instruction_id_list": ["combination:two_responses"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1759, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1773, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1776, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1779, "instruction_id_list": ["change_case:english_capital", "keywords:existence"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1781, "instruction_id_list": ["length_constraints:number_words", "change_case:english_lowercase"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 179, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1793, "instruction_id_list": ["combination:two_responses", "length_constraints:number_words"], "strict": [false, true], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1800, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1802, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 181, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1813, "instruction_id_list": ["change_case:english_capital", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1823, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_sentences"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1825, "instruction_id_list": ["punctuation:no_comma", "detectable_content:postscript", "keywords:existence"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1834, "instruction_id_list": ["length_constraints:number_sentences", "change_case:capital_word_frequency"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1837, "instruction_id_list": ["length_constraints:number_sentences", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1843, "instruction_id_list": ["change_case:english_lowercase", "startend:quotation"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1845, "instruction_id_list": ["keywords:existence", "length_constraints:number_paragraphs"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1857, "instruction_id_list": ["keywords:frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1858, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1879, "instruction_id_list": ["length_constraints:number_sentences", "length_constraints:number_words"], "strict": [false, false], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1880, "instruction_id_list": ["keywords:letter_frequency", "length_constraints:number_words"], "strict": [false, false], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1883, "instruction_id_list": ["keywords:letter_frequency", "length_constraints:number_paragraphs"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1886, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1893, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1897, "instruction_id_list": ["detectable_format:number_highlighted_sections", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 19, "instruction_id_list": ["length_constraints:number_words", "length_constraints:number_words"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1902, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1906, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1908, "instruction_id_list": ["length_constraints:number_sentences", "detectable_format:number_bullet_lists", "detectable_content:number_placeholders"], "strict": [true, false, false], "loose": [true, false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1922, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1927, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1928, "instruction_id_list": ["detectable_format:title", "punctuation:no_comma", "keywords:frequency"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1934, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1936, "instruction_id_list": ["keywords:forbidden_words", "detectable_format:number_bullet_lists"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1939, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1943, "instruction_id_list": ["length_constraints:number_paragraphs", "startend:end_checker"], "strict": [false, true], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 1944, "instruction_id_list": ["punctuation:no_comma", "combination:repeat_prompt"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 1954, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1964, "instruction_id_list": ["keywords:letter_frequency", "length_constraints:number_words"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 1967, "instruction_id_list": ["change_case:english_lowercase", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1980, "instruction_id_list": ["length_constraints:number_words", "detectable_format:number_bullet_lists", "detectable_content:postscript"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1996, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 1999, "instruction_id_list": ["change_case:english_capital"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 201, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2010, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2015, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 202, "instruction_id_list": ["change_case:english_lowercase"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2023, "instruction_id_list": ["detectable_format:multiple_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2028, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2034, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2035, "instruction_id_list": ["detectable_format:number_highlighted_sections", "startend:quotation", "length_constraints:number_sentences"], "strict": [true, true, false], "loose": [true, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2041, "instruction_id_list": ["length_constraints:number_sentences", "keywords:forbidden_words"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2063, "instruction_id_list": ["combination:repeat_prompt", "punctuation:no_comma"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2069, "instruction_id_list": ["length_constraints:number_words", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2070, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2071, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2078, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2084, "instruction_id_list": ["keywords:frequency", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 209, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2097, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2100, "instruction_id_list": ["detectable_format:number_bullet_lists", "change_case:english_lowercase"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2107, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2118, "instruction_id_list": ["length_constraints:number_paragraphs", "detectable_format:number_bullet_lists"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2136, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2139, "instruction_id_list": ["length_constraints:number_sentences", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2142, "instruction_id_list": ["keywords:frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2143, "instruction_id_list": ["keywords:forbidden_words", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2162, "instruction_id_list": ["length_constraints:number_sentences", "detectable_content:number_placeholders"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2164, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2169, "instruction_id_list": ["keywords:letter_frequency", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 218, "instruction_id_list": ["detectable_content:number_placeholders", "change_case:english_lowercase"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2180, "instruction_id_list": ["change_case:capital_word_frequency", "length_constraints:number_paragraphs"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 219, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2192, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2195, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [false], "loose": [true], "prompt_strict": false, "prompt_loose": true}
+{"key": 2207, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2209, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2215, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2216, "instruction_id_list": ["change_case:english_lowercase", "punctuation:no_comma", "detectable_content:postscript"], "strict": [false, true, true], "loose": [true, true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 2225, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2229, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2230, "instruction_id_list": ["punctuation:no_comma", "detectable_format:number_highlighted_sections"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2239, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2243, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2245, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2246, "instruction_id_list": ["length_constraints:number_words", "keywords:frequency", "detectable_content:number_placeholders"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2247, "instruction_id_list": ["change_case:english_capital"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2250, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2253, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2265, "instruction_id_list": ["keywords:letter_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2266, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2268, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 227, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2273, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2275, "instruction_id_list": ["change_case:capital_word_frequency", "punctuation:no_comma", "keywords:frequency"], "strict": [false, false, true], "loose": [false, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2284, "instruction_id_list": ["length_constraints:number_words", "detectable_content:number_placeholders", "detectable_format:number_bullet_lists"], "strict": [false, false, false], "loose": [false, false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2292, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2299, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2303, "instruction_id_list": ["startend:quotation", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2304, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2305, "instruction_id_list": ["combination:repeat_prompt", "detectable_format:title"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2309, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2311, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2314, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2323, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2324, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2328, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2337, "instruction_id_list": ["combination:repeat_prompt", "punctuation:no_comma"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2341, "instruction_id_list": ["change_case:english_capital"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2350, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2355, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2357, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2359, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2362, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2372, "instruction_id_list": ["detectable_format:number_highlighted_sections", "change_case:english_lowercase"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2374, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2380, "instruction_id_list": ["detectable_format:number_bullet_lists", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2381, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2383, "instruction_id_list": ["combination:two_responses"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2386, "instruction_id_list": ["length_constraints:number_paragraphs", "keywords:frequency"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2391, "instruction_id_list": ["length_constraints:number_words", "change_case:english_lowercase"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2392, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2395, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2396, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2398, "instruction_id_list": ["startend:end_checker"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 24, "instruction_id_list": ["change_case:english_capital"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 240, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2404, "instruction_id_list": ["detectable_format:json_format"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2416, "instruction_id_list": ["length_constraints:number_words", "keywords:letter_frequency", "change_case:english_capital"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2417, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2422, "instruction_id_list": ["change_case:english_capital", "detectable_format:title"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2432, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2436, "instruction_id_list": ["combination:two_responses", "punctuation:no_comma"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2439, "instruction_id_list": ["punctuation:no_comma", "length_constraints:nth_paragraph_first_word", "detectable_content:number_placeholders"], "strict": [false, false, true], "loose": [false, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2441, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2447, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2449, "instruction_id_list": ["punctuation:no_comma", "keywords:letter_frequency"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2457, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2464, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2465, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2467, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 247, "instruction_id_list": ["combination:two_responses"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2471, "instruction_id_list": ["keywords:forbidden_words", "detectable_content:number_placeholders"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2475, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2482, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2485, "instruction_id_list": ["keywords:existence"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2497, "instruction_id_list": ["detectable_format:number_highlighted_sections", "startend:quotation"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2505, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 251, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2515, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2517, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2531, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2532, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2534, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [true], "prompt_strict": false, "prompt_loose": true}
+{"key": 2549, "instruction_id_list": ["length_constraints:nth_paragraph_first_word", "keywords:existence", "detectable_content:postscript"], "strict": [false, false, true], "loose": [false, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2563, "instruction_id_list": ["change_case:english_capital"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2567, "instruction_id_list": ["keywords:existence"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2571, "instruction_id_list": ["change_case:english_capital", "punctuation:no_comma", "length_constraints:number_sentences"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2577, "instruction_id_list": ["combination:two_responses", "keywords:forbidden_words"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2583, "instruction_id_list": ["keywords:frequency", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2585, "instruction_id_list": ["combination:repeat_prompt"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2589, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2590, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2591, "instruction_id_list": ["detectable_format:json_format", "keywords:existence"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2596, "instruction_id_list": ["combination:two_responses", "language:response_language", "punctuation:no_comma"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 260, "instruction_id_list": ["keywords:existence", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2602, "instruction_id_list": ["keywords:existence"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2605, "instruction_id_list": ["startend:quotation", "keywords:letter_frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2616, "instruction_id_list": ["detectable_format:number_highlighted_sections", "keywords:frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2617, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2622, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2628, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2637, "instruction_id_list": ["detectable_format:multiple_sections", "length_constraints:number_sentences"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2649, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2653, "instruction_id_list": ["keywords:letter_frequency", "detectable_format:number_bullet_lists"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2662, "instruction_id_list": ["keywords:existence"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2667, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2674, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2677, "instruction_id_list": ["startend:end_checker"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2683, "instruction_id_list": ["combination:two_responses", "detectable_format:title", "keywords:existence"], "strict": [true, true, false], "loose": [true, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2685, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2691, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2704, "instruction_id_list": ["combination:two_responses", "detectable_format:title", "punctuation:no_comma"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2713, "instruction_id_list": ["combination:repeat_prompt", "punctuation:no_comma"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2716, "instruction_id_list": ["keywords:frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2724, "instruction_id_list": ["language:response_language", "startend:quotation"], "strict": [true, false], "loose": [true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 2728, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2736, "instruction_id_list": ["change_case:english_capital", "startend:end_checker"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2739, "instruction_id_list": ["combination:repeat_prompt", "punctuation:no_comma"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2749, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2751, "instruction_id_list": ["length_constraints:number_words", "startend:quotation"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2752, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2759, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2765, "instruction_id_list": ["change_case:english_lowercase", "detectable_content:number_placeholders"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2768, "instruction_id_list": ["keywords:letter_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2779, "instruction_id_list": ["keywords:letter_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2780, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2785, "instruction_id_list": ["detectable_format:number_highlighted_sections", "detectable_content:number_placeholders"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2787, "instruction_id_list": ["keywords:letter_frequency", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 279, "instruction_id_list": ["change_case:english_lowercase", "keywords:letter_frequency", "detectable_format:title"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2790, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2798, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2801, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2807, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 281, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2811, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2817, "instruction_id_list": ["change_case:english_lowercase"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2820, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2825, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2828, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2829, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2832, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2844, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2849, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2853, "instruction_id_list": ["change_case:capital_word_frequency", "detectable_format:title"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2857, "instruction_id_list": ["detectable_format:json_format"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2859, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 286, "instruction_id_list": ["startend:end_checker", "length_constraints:number_sentences"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2870, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2871, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 288, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2880, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2887, "instruction_id_list": ["detectable_format:title", "keywords:letter_frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2889, "instruction_id_list": ["startend:quotation", "detectable_format:multiple_sections"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 2904, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2905, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2908, "instruction_id_list": ["detectable_content:postscript", "change_case:english_capital"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2909, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2912, "instruction_id_list": ["combination:two_responses", "keywords:letter_frequency"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2918, "instruction_id_list": ["combination:two_responses"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 292, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2921, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2925, "instruction_id_list": ["detectable_format:multiple_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2929, "instruction_id_list": ["detectable_content:postscript"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2941, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2943, "instruction_id_list": ["keywords:frequency", "change_case:english_lowercase", "length_constraints:number_paragraphs"], "strict": [true, false, false], "loose": [true, false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 295, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2957, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 296, "instruction_id_list": ["keywords:frequency", "change_case:english_lowercase", "length_constraints:number_words"], "strict": [true, true, false], "loose": [true, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 2969, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2977, "instruction_id_list": ["length_constraints:number_paragraphs"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2985, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 2997, "instruction_id_list": ["keywords:frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 30, "instruction_id_list": ["startend:quotation", "length_constraints:number_words", "startend:quotation"], "strict": [true, false, true], "loose": [true, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3001, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 301, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3025, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3035, "instruction_id_list": ["detectable_content:number_placeholders", "change_case:english_lowercase"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3041, "instruction_id_list": ["length_constraints:number_sentences", "detectable_format:number_bullet_lists"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3048, "instruction_id_list": ["startend:end_checker"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3057, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3063, "instruction_id_list": ["length_constraints:number_paragraphs", "language:response_language"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3069, "instruction_id_list": ["detectable_format:number_bullet_lists", "change_case:english_lowercase", "detectable_content:postscript"], "strict": [false, false, true], "loose": [true, true, true], "prompt_strict": false, "prompt_loose": true}
+{"key": 3071, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3073, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3079, "instruction_id_list": ["startend:end_checker"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3081, "instruction_id_list": ["keywords:forbidden_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3084, "instruction_id_list": ["punctuation:no_comma", "startend:end_checker"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3089, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_sentences", "length_constraints:number_sentences"], "strict": [true, false, true], "loose": [true, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3091, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3098, "instruction_id_list": ["detectable_format:number_bullet_lists", "length_constraints:number_paragraphs", "change_case:capital_word_frequency"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3109, "instruction_id_list": ["keywords:frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3112, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3114, "instruction_id_list": ["length_constraints:number_words", "keywords:forbidden_words", "startend:end_checker"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3126, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3130, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3131, "instruction_id_list": ["detectable_format:title", "detectable_content:postscript"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3150, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3156, "instruction_id_list": ["keywords:existence"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3166, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3186, "instruction_id_list": ["change_case:english_capital"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3188, "instruction_id_list": ["change_case:capital_word_frequency", "change_case:capital_word_frequency", "keywords:frequency"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3191, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3195, "instruction_id_list": ["keywords:letter_frequency", "punctuation:no_comma", "language:response_language"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3198, "instruction_id_list": ["startend:end_checker"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 32, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3203, "instruction_id_list": ["startend:end_checker"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3204, "instruction_id_list": ["punctuation:no_comma", "change_case:english_capital"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 321, "instruction_id_list": ["detectable_format:json_format"], "strict": [false], "loose": [true], "prompt_strict": false, "prompt_loose": true}
+{"key": 322, "instruction_id_list": ["combination:two_responses"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3221, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3223, "instruction_id_list": ["detectable_format:json_format"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3224, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3241, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3243, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3245, "instruction_id_list": ["punctuation:no_comma", "detectable_content:number_placeholders"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3256, "instruction_id_list": ["length_constraints:number_sentences", "detectable_format:title", "punctuation:no_comma"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3263, "instruction_id_list": ["combination:two_responses"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3272, "instruction_id_list": ["combination:repeat_prompt", "detectable_format:title", "keywords:frequency"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3276, "instruction_id_list": ["change_case:english_capital", "length_constraints:number_sentences", "length_constraints:number_sentences"], "strict": [true, false, true], "loose": [true, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3280, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3281, "instruction_id_list": ["combination:two_responses", "punctuation:no_comma"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3287, "instruction_id_list": ["combination:two_responses", "length_constraints:number_words"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3294, "instruction_id_list": ["length_constraints:number_paragraphs", "startend:quotation"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3305, "instruction_id_list": ["language:response_language", "combination:repeat_prompt", "keywords:existence"], "strict": [false, false, false], "loose": [false, false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 331, "instruction_id_list": ["change_case:capital_word_frequency", "punctuation:no_comma"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3311, "instruction_id_list": ["language:response_language", "detectable_format:title", "keywords:existence"], "strict": [true, true, false], "loose": [true, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3315, "instruction_id_list": ["length_constraints:number_paragraphs", "keywords:forbidden_words"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 332, "instruction_id_list": ["combination:repeat_prompt", "length_constraints:number_words"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3323, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3324, "instruction_id_list": ["combination:two_responses", "detectable_format:multiple_sections"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3326, "instruction_id_list": ["keywords:letter_frequency", "keywords:forbidden_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3327, "instruction_id_list": ["keywords:existence", "keywords:frequency", "keywords:frequency"], "strict": [true, false, true], "loose": [true, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3329, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3335, "instruction_id_list": ["combination:two_responses", "language:response_language", "punctuation:no_comma"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 334, "instruction_id_list": ["startend:quotation", "detectable_format:number_bullet_lists"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3345, "instruction_id_list": ["keywords:frequency", "detectable_format:number_bullet_lists", "keywords:forbidden_words"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3350, "instruction_id_list": ["punctuation:no_comma", "detectable_content:number_placeholders"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3351, "instruction_id_list": ["length_constraints:number_paragraphs", "detectable_format:number_highlighted_sections"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3362, "instruction_id_list": ["length_constraints:number_sentences", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3367, "instruction_id_list": ["startend:quotation", "detectable_format:multiple_sections"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3369, "instruction_id_list": ["combination:repeat_prompt", "keywords:frequency"], "strict": [false, false], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 337, "instruction_id_list": ["length_constraints:number_words", "detectable_format:title"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3371, "instruction_id_list": ["combination:repeat_prompt", "keywords:existence", "keywords:forbidden_words"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3376, "instruction_id_list": ["keywords:existence", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3380, "instruction_id_list": ["change_case:english_lowercase", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3386, "instruction_id_list": ["keywords:forbidden_words", "keywords:existence"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 340, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3401, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3407, "instruction_id_list": ["change_case:capital_word_frequency", "change_case:capital_word_frequency"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3409, "instruction_id_list": ["startend:quotation", "detectable_format:number_highlighted_sections"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3414, "instruction_id_list": ["change_case:capital_word_frequency", "change_case:capital_word_frequency"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3415, "instruction_id_list": ["length_constraints:number_words", "keywords:frequency", "keywords:frequency"], "strict": [false, true, true], "loose": [false, true, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3424, "instruction_id_list": ["change_case:english_capital"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3425, "instruction_id_list": ["length_constraints:number_words"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3428, "instruction_id_list": ["keywords:letter_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3429, "instruction_id_list": ["detectable_format:multiple_sections", "length_constraints:number_sentences"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 343, "instruction_id_list": ["length_constraints:number_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3434, "instruction_id_list": ["change_case:english_lowercase", "length_constraints:nth_paragraph_first_word"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3439, "instruction_id_list": ["keywords:existence"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3442, "instruction_id_list": ["length_constraints:number_words", "detectable_format:title"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3445, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3453, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3455, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3456, "instruction_id_list": ["detectable_format:number_highlighted_sections", "change_case:english_capital"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3478, "instruction_id_list": ["keywords:letter_frequency"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3479, "instruction_id_list": ["keywords:forbidden_words", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3484, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 349, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3494, "instruction_id_list": ["detectable_content:number_placeholders", "language:response_language"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3502, "instruction_id_list": ["language:response_language", "detectable_format:title"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3505, "instruction_id_list": ["punctuation:no_comma", "combination:repeat_prompt"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3506, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3513, "instruction_id_list": ["change_case:capital_word_frequency"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3518, "instruction_id_list": ["detectable_format:json_format", "keywords:existence"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3534, "instruction_id_list": ["change_case:english_lowercase", "length_constraints:number_sentences", "length_constraints:number_sentences"], "strict": [false, true, false], "loose": [false, true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3536, "instruction_id_list": ["startend:quotation"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3538, "instruction_id_list": ["keywords:frequency", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3540, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3549, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3557, "instruction_id_list": ["detectable_format:number_bullet_lists"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3563, "instruction_id_list": ["combination:repeat_prompt"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3565, "instruction_id_list": ["keywords:forbidden_words", "length_constraints:number_paragraphs"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3567, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3569, "instruction_id_list": ["detectable_format:number_highlighted_sections", "length_constraints:number_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 357, "instruction_id_list": ["detectable_format:multiple_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3572, "instruction_id_list": ["change_case:english_capital"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3595, "instruction_id_list": ["keywords:forbidden_words"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3606, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3608, "instruction_id_list": ["keywords:letter_frequency", "change_case:english_lowercase"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3615, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3617, "instruction_id_list": ["change_case:english_capital"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3619, "instruction_id_list": ["detectable_content:number_placeholders", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3623, "instruction_id_list": ["startend:quotation", "language:response_language"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3624, "instruction_id_list": ["length_constraints:nth_paragraph_first_word"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3629, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3631, "instruction_id_list": ["punctuation:no_comma"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3633, "instruction_id_list": ["combination:repeat_prompt", "punctuation:no_comma"], "strict": [false, false], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3644, "instruction_id_list": ["detectable_format:number_highlighted_sections"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3653, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3669, "instruction_id_list": ["punctuation:no_comma", "language:response_language"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3672, "instruction_id_list": ["startend:quotation", "length_constraints:number_sentences", "length_constraints:number_sentences"], "strict": [true, false, true], "loose": [true, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3680, "instruction_id_list": ["keywords:frequency", "detectable_format:number_highlighted_sections"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3682, "instruction_id_list": ["language:response_language"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3690, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3691, "instruction_id_list": ["length_constraints:number_sentences", "punctuation:no_comma"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3697, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3703, "instruction_id_list": ["change_case:english_lowercase"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3709, "instruction_id_list": ["startend:quotation", "keywords:forbidden_words"], "strict": [true, false], "loose": [true, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 371, "instruction_id_list": ["detectable_format:json_format", "keywords:forbidden_words"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3710, "instruction_id_list": ["detectable_format:number_highlighted_sections", "detectable_format:title", "detectable_content:postscript"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3718, "instruction_id_list": ["detectable_format:title", "combination:repeat_prompt", "punctuation:no_comma"], "strict": [true, false, true], "loose": [true, false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3719, "instruction_id_list": ["detectable_format:title"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3724, "instruction_id_list": ["detectable_format:number_highlighted_sections", "punctuation:no_comma", "startend:end_checker"], "strict": [true, true, true], "loose": [true, true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3732, "instruction_id_list": ["keywords:existence"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3739, "instruction_id_list": ["length_constraints:number_sentences"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 374, "instruction_id_list": ["combination:repeat_prompt", "keywords:forbidden_words"], "strict": [false, false], "loose": [false, false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3743, "instruction_id_list": ["detectable_content:number_placeholders"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3744, "instruction_id_list": ["detectable_content:number_placeholders", "language:response_language"], "strict": [false, true], "loose": [false, true], "prompt_strict": false, "prompt_loose": false}
+{"key": 3748, "instruction_id_list": ["combination:two_responses", "keywords:existence"], "strict": [true, true], "loose": [true, true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3749, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3750, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3751, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3752, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3753, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3754, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3755, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}
+{"key": 3756, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [false], "loose": [false], "prompt_strict": false, "prompt_loose": false}
+{"key": 3757, "instruction_id_list": ["detectable_format:constrained_response"], "strict": [true], "loose": [true], "prompt_strict": true, "prompt_loose": true}

@@ -1,0 +1,197 @@
+{
+  "paper_gpt4": {
+    "prompt_strict": 76.89,
+    "inst_strict": 83.57,
+    "prompt_loose": 79.3,
+    "inst_loose": 85.37
+  },
+  "official_seeded": {
+    "prompt_strict": 77.07948243992607,
+    "inst_strict": 83.69304556354916,
+    "prompt_loose": 79.66728280961183,
+    "inst_loose": 85.61151079136691,
+    "n_prompts": 541,
+    "n_instructions": 834
+  },
+  "seeded_is_deterministic": true,
+  "official_unseeded": {
+    "prompt_strict": {
+      "min": 76.70979667282809,
+      "max": 77.07948243992607,
+      "mean": 76.97473813924832
+    },
+    "inst_strict": {
+      "min": 83.45323741007195,
+      "max": 83.69304556354916,
+      "mean": 83.62509992006395
+    },
+    "prompt_loose": {
+      "min": 79.48243992606285,
+      "max": 79.66728280961183,
+      "mean": 79.54405422057918
+    },
+    "inst_loose": {
+      "min": 85.4916067146283,
+      "max": 85.61151079136691,
+      "mean": 85.53157474020784
+    }
+  },
+  "only_random_unseeded": {
+    "prompt_strict": {
+      "min": 76.70979667282809,
+      "max": 77.07948243992607,
+      "mean": 76.89463955637709
+    },
+    "inst_strict": {
+      "min": 83.45323741007195,
+      "max": 83.69304556354916,
+      "mean": 83.57314148681056
+    },
+    "prompt_loose": {
+      "min": 79.29759704251386,
+      "max": 79.66728280961183,
+      "mean": 79.53789279112755
+    },
+    "inst_loose": {
+      "min": 85.37170263788968,
+      "max": 85.61151079136691,
+      "mean": 85.52757793764988
+    }
+  },
+  "only_langdetect_unseeded": {
+    "prompt_strict": {
+      "min": 77.07948243992607,
+      "max": 77.07948243992607,
+      "mean": 77.07948243992607
+    },
+    "inst_strict": {
+      "min": 83.69304556354916,
+      "max": 83.69304556354916,
+      "mean": 83.69304556354916
+    },
+    "prompt_loose": {
+      "min": 79.66728280961183,
+      "max": 79.66728280961183,
+      "mean": 79.66728280961183
+    },
+    "inst_loose": {
+      "min": 85.61151079136691,
+      "max": 85.61151079136691,
+      "mean": 85.61151079136691
+    }
+  },
+  "official_unseeded_n": 30,
+  "flipping_items": {
+    "any": [
+      1122,
+      1129
+    ],
+    "from_python_random": [
+      1122,
+      1129
+    ],
+    "from_langdetect": [],
+    "detail": {
+      "1122": {
+        "instructions": [
+          "change_case:english_lowercase",
+          "keywords:letter_frequency"
+        ],
+        "kwargs": [
+          {},
+          {
+            "let_relation": "at least",
+            "letter": "#",
+            "let_frequency": 4
+          }
+        ]
+      },
+      "1129": {
+        "instructions": [
+          "keywords:letter_frequency",
+          "combination:repeat_prompt"
+        ],
+        "kwargs": [
+          {
+            "let_relation": "at least",
+            "letter": "!",
+            "let_frequency": 6
+          },
+          {
+            "prompt_to_repeat": "Write a short startup pitch for a new kind of ice cream called \"Sunnis ice cream\". The ice cream should be gentle on the stomach. Contain 6 or more exclamation marks \"!\" in your response."
+          }
+        ]
+      }
+    }
+  },
+  "official_attainable_range": {
+    "prompt_strict": {
+      "min": 76.70979667282809,
+      "max": 77.07948243992607
+    },
+    "inst_strict": {
+      "min": 83.45323741007195,
+      "max": 83.69304556354916
+    },
+    "prompt_loose": {
+      "min": 79.29759704251386,
+      "max": 79.66728280961183
+    },
+    "inst_loose": {
+      "min": 85.37170263788968,
+      "max": 85.61151079136691
+    }
+  },
+  "paper_within_unseeded_range": {
+    "prompt_strict": true,
+    "inst_strict": true,
+    "prompt_loose": true,
+    "inst_loose": true
+  },
+  "lmeval_seeded": {
+    "prompt_strict": 77.07948243992607,
+    "inst_strict": 83.69304556354916,
+    "prompt_loose": 79.66728280961183,
+    "inst_loose": 85.61151079136691,
+    "n_prompts": 541,
+    "n_instructions": 834
+  },
+  "agreement_gpt4_official_vs_lmeval": {
+    "instruction_agreement": 1.0,
+    "prompt_agreement": 1.0,
+    "n_disagreements": 0,
+    "disagreements": []
+  },
+  "agreement_model_runs_official_vs_lmeval": {
+    "qwen2.5-0.5b/greedy_plain_r0": {
+      "instruction_agreement": 1.0,
+      "prompt_agreement": 1.0,
+      "n_disagreements": 0,
+      "disagreements": []
+    },
+    "qwen2.5-1.5b/greedy_plain_r0": {
+      "instruction_agreement": 1.0,
+      "prompt_agreement": 1.0,
+      "n_disagreements": 0,
+      "disagreements": []
+    },
+    "qwen2.5-3b/greedy_plain_r0": {
+      "instruction_agreement": 1.0,
+      "prompt_agreement": 1.0,
+      "n_disagreements": 0,
+      "disagreements": []
+    },
+    "smollm2-1.7b/greedy_plain_r0": {
+      "instruction_agreement": 1.0,
+      "prompt_agreement": 1.0,
+      "n_disagreements": 0,
+      "disagreements": []
+    }
+  },
+  "item_drift": {
+    "canonical_vs_latest_github_changed_keys": [
+      2785
+    ],
+    "hf_dataset_error": "ImportError('pyarrow requires NumPy 2.0 or newer, found 1.26.4')"
+  }
+}

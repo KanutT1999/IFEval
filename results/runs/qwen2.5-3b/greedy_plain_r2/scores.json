@@ -1,0 +1,12 @@
+{
+  "prompt_strict": 58.96487985212569,
+  "inst_strict": 68.22541966426859,
+  "prompt_loose": 62.84658040665435,
+  "inst_loose": 71.34292565947243,
+  "n_prompts": 541,
+  "n_instructions": 834,
+  "scorer": "official",
+  "langdetect_seed": 0,
+  "python_random_seed": "0*1000003+key",
+  "official_scorer_commit": "e6890f85757dd84e27ca6df2dd30651dafad28e0"
+}
