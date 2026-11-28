@@ -90,12 +90,19 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
+_DIST = {"absl": "absl-py"}
+
+
 def _version(mod: str):
+    """Installed distribution version (works for packages without __version__, e.g. langdetect)."""
+    from importlib import metadata
     try:
-        m = importlib.import_module(mod)
-        return getattr(m, "__version__", "unknown")
-    except Exception:  # noqa: BLE001
-        return None
+        return metadata.version(_DIST.get(mod, mod))
+    except metadata.PackageNotFoundError:
+        try:
+            return getattr(importlib.import_module(mod), "__version__", "unknown")
+        except Exception:  # noqa: BLE001
+            return None
 
 
 def _cmd(args: list[str]):
@@ -170,3 +177,21 @@ def default_model_set(cfg: dict) -> str:
     if hw == "rtx_8gb":
         return "rtx_8gb"
     return "v100_32gb" if gpu_mem_gb() > 24 else "v100_16gb"
+
+
+def write_freeze(path: Path) -> str:
+    """Full package list. uv-created venvs have no pip, so fall back to `uv pip freeze`,
+    then to importlib.metadata (always available)."""
+    import subprocess
+    for cmd in ([sys.executable, "-m", "pip", "freeze"], ["uv", "pip", "freeze", "--python", sys.executable]):
+        try:
+            out = subprocess.run(cmd, capture_output=True, text=True, timeout=120).stdout
+        except (OSError, subprocess.SubprocessError):
+            out = ""
+        if out.strip():
+            break
+    else:
+        from importlib import metadata
+        out = "".join(sorted(f"{d.metadata['Name']}=={d.version}\n" for d in metadata.distributions()))
+    path.write_text(out)
+    return out

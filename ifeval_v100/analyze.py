@@ -300,8 +300,12 @@ def main():
                  f"{x:.1f}% prompt-level strict ({rng}); the paper reports {pg:.1f}% (GPT-4) and {pp2:.1f}% "
                  f"(PaLM 2 S) for different and larger models. The difference is confounded with model family, "
                  f"scale, precision, chat template and decoding (§6).”")
-    R += ["", "_Residual: see §8b — even with the authors' responses and scorer, loose metrics differ from "
-          "Table 3 by a few tenths of a point; part of every comparison is scorer noise._", ""]
+    R += ["", "**Residual.** What this study accounts for: (a) scorer noise — the original scorer's random "
+          "letter in 2 items moves a score by at most 2/541 = 0.37 pp prompt-level (§8b; removed here by seeding); "
+          "(b) our own run-to-run spread (§2); (c) the chat-template effect on our models (§8a). What it does "
+          "*not* account for: the gap to GPT-4 / PaLM 2 S itself. Model family, scale, serving precision/hardware, "
+          "the API-side prompt format and decoding all differ at once (§6) and none was varied against the "
+          "paper's models, so the whole gap beyond scorer noise and our spread remains unattributed.", ""]
 
     (out / "REPORT.md").write_text("\n".join(R) + "\n", encoding="utf-8")
     plots(cfg, runs, cache, models, H, pt, spread, out)

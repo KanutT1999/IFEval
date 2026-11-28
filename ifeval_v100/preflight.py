@@ -24,8 +24,7 @@ def main():
     env = common.env_info()
     out = common.RESULTS / "env"
     common.write_json(out / "env.json", env)
-    freeze = subprocess.run([sys.executable, "-m", "pip", "freeze"], capture_output=True, text=True).stdout
-    (out / "pip_freeze.txt").write_text(freeze)
+    common.write_freeze(out / "pip_freeze.txt")
     print(f"GPU: {env.get('gpu_name')} cc={env.get('gpu_capability')} mem={env.get('gpu_mem_gb')}GB "
           f"torch={env['libraries']['torch']} vllm={env['libraries']['vllm']}")
 
